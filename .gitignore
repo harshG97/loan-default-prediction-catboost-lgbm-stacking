@@ -60,9 +60,5 @@ Thumbs.db
 # Logs
 *.log
 
-# Keep only structure
-!outputs/.gitkeep
-!data/.gitkeep
-
 # Kaggle specific
 kaggle.json
