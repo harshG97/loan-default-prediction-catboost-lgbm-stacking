@@ -12,7 +12,7 @@ An advanced **ensemble learning pipeline** for loan default prediction using **C
 
 This notebook tackles a binary classification problem predicting **loan default risk** using a sophisticated multi-model ensemble approach. Instead of relying on a single model, we combine the strengths of two powerful gradient boosting algorithms and use a meta-learner to optimally blend their predictions.
 
-### 🎯 Problem Statement
+### Problem Statement
 
 Predict whether a loan applicant will default based on:
 - **Personal Information**: Age, income, employment history
@@ -20,7 +20,7 @@ Predict whether a loan applicant will default based on:
 - **Credit History**: Previous defaults, credit history length
 - **Socioeconomic Factors**: Home ownership status
 
-### 🔬 Ensemble Architecture
+### Ensemble Architecture
 
 ```
 ┌─────────────────┐         ┌─────────────────┐
@@ -42,7 +42,7 @@ Predict whether a loan applicant will default based on:
           Final Predictions
 ```
 
-### 🏆 Key Results
+### Key Results
 
 - **Dual-model ensemble**: CatBoost + LightGBM for complementary pattern learning
 - **Optuna optimization**: 200+ hyperparameter trials across all models
@@ -50,7 +50,7 @@ Predict whether a loan applicant will default based on:
 - **Robust CV**: Stratified 5-fold ensures reliable performance estimates
 - **Smart preprocessing**: Domain-driven imputation and feature engineering
 
-## ✨ Features
+## Features
 
 ### 🤖 Multiple Model Architecture
 - ✅ **CatBoost**: Native categorical handling with ordered boosting
@@ -64,24 +64,24 @@ Predict whether a loan applicant will default based on:
 - ✅ **Outlier Handling**: Logical validation (remove impossible cases)
 - ✅ **Duplicate Removal**: Ensure data quality
 
-### 🎨 Advanced Feature Engineering
+### Advanced Feature Engineering
 - 🔧 **Binning Features**: Income, age, employment length → categorical bins
 - 🔧 **Ratio Features**: Debt-to-income, income-to-loan, loan percentage
 - 🔧 **Interaction Features**: Grade×Home, Grade×Default history
 - 🔧 **Domain Knowledge**: Features that capture financial risk relationships
 
-### ⚙️ Automated Optimization
+### Automated Optimization
 - 🚀 **Optuna Framework**: TPE-based hyperparameter search
 - 🚀 **100 trials per model**: CatBoost, LightGBM, Lasso α optimization
 - 🚀 **Early stopping**: Pruning unpromising trials
 - 🚀 **Parallel execution**: Faster optimization
 
-### 📊 Robust Validation
+### Robust Validation
 - 📈 **Stratified K-Fold**: Maintains class distribution (5 folds)
 - 📈 **Out-of-fold predictions**: Prevents overfitting in meta-model
 - 📈 **Test-time averaging**: Ensemble of 5 models per base learner
 
-## 🗂️ Table of Contents
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -92,11 +92,9 @@ Predict whether a loan applicant will default based on:
 - [Ensemble Strategy](#ensemble-strategy)
 - [Results](#results)
 - [Key Learnings](#key-learnings)
-- [Future Improvements](#future-improvements)
 - [Contributing](#contributing)
-- [License](#license)
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 
@@ -127,7 +125,7 @@ pip install -r requirements.txt
 jupyter notebook catboost-lgbm-blending-enhanced.ipynb
 ```
 
-## 💻 Usage
+## Usage
 
 ### Basic Workflow
 
@@ -189,7 +187,7 @@ RETUNE_LGBM = False      # Set True to re-run LightGBM optimization
 RETUNE_LASSO = False     # Set True to re-run Lasso alpha tuning
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 loan-default-prediction-ensemble/
@@ -209,7 +207,7 @@ loan-default-prediction-ensemble/
     └── model_weights.pkl
 ```
 
-## 🔬 Methodology
+## Methodology
 
 ### 1. Data Integration
 
@@ -381,7 +379,7 @@ StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 - Out-of-fold predictions for meta-model training → Prevents overfitting
 - Robust performance estimation → Confidence in production
 
-## 🎨 Feature Engineering
+## Feature Engineering
 
 ### Engineered Features Summary
 
@@ -403,7 +401,7 @@ Top contributing engineered features:
 2. `income_bin` categories
 3. `grade_home` interaction
 
-## 🔗 Ensemble Strategy
+## Ensemble Strategy
 
 ### Three-Layer Architecture
 
@@ -441,7 +439,7 @@ Top contributing engineered features:
 
 *Example metrics - actual values depend on data*
 
-## 📈 Results
+## Results
 
 ### Performance Metrics
 
@@ -482,7 +480,7 @@ This suggests both models contribute meaningfully (balanced ensemble).
 
 **Observation**: 4 of top 10 are engineered features! Validates our feature engineering strategy.
 
-## 🎓 Key Learnings
+## Key Learnings
 
 ### 1. Ensemble > Single Model (Almost Always)
 Combining CatBoost and LightGBM beats using either alone, even after extensive hyperparameter tuning.
@@ -510,56 +508,9 @@ Regular K-Fold can create folds with different default rates, leading to unstabl
 ### 8. Out-of-Fold Predictions Prevent Overfitting
 Training meta-model on in-fold predictions would overfit. OOF predictions ensure generalization.
 
-## 🚀 Future Improvements
-
-### Model Architecture
-- [ ] Add XGBoost as third base model (three-model ensemble)
-- [ ] Try neural network meta-learner (more complex blending)
-- [ ] Experiment with stacking multiple layers
-- [ ] Test voting classifier (hard voting vs soft voting)
-
-### Feature Engineering
-- [ ] Polynomial features (interactions of ratios)
-- [ ] Time-based features (if loan date available)
-- [ ] Clustering-based features (similar applicant groups)
-- [ ] Text features from loan purpose/description
-
-### Optimization
-- [ ] Multi-objective optimization (accuracy + fairness)
-- [ ] Automated feature selection with Optuna
-- [ ] Bayesian optimization for blending weights
-- [ ] Neural Architecture Search for meta-model
-
-### Validation
-- [ ] Time-based split (if temporal data available)
-- [ ] Group K-Fold (by geographic region, etc.)
-- [ ] Leave-one-out CV for small datasets
-- [ ] Bootstrap validation
-
-### Production
-- [ ] Model calibration for probability predictions
-- [ ] Fairness analysis (by demographic groups)
-- [ ] SHAP values for explainability
-- [ ] A/B testing framework
-- [ ] Online learning setup
-- [ ] Model monitoring dashboard
-
 ## 🤝 Contributing
 
-Contributions are welcome! Areas where help is appreciated:
-
-### High Priority
-- [ ] Add XGBoost to create three-model ensemble
-- [ ] Implement SHAP explainability analysis
-- [ ] Create production deployment pipeline
-- [ ] Add unit tests for preprocessing functions
-- [ ] Fairness and bias analysis
-
-### Medium Priority
-- [ ] Experiment with deep learning meta-models
-- [ ] Alternative feature engineering approaches
-- [ ] Hyperparameter tuning for model ensembles
-- [ ] Documentation improvements
+Contributions are welcome! 
 
 ### How to Contribute
 1. Fork the repository
@@ -567,27 +518,6 @@ Contributions are welcome! Areas where help is appreciated:
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Kaggle Community**: For the Playground Series competition and datasets
-- **CatBoost Team**: For excellent gradient boosting library
-- **LightGBM Developers**: For fast and efficient gradient boosting
-- **Optuna Contributors**: For making hyperparameter optimization accessible
-- **Scikit-learn**: For comprehensive ML tools and utilities
-
-## 📧 Contact
-
-Have questions or suggestions?
-- Open an issue on GitHub
-- Submit a pull request
-- Reach out via [your contact method]
 
 ## 📚 References
 
