@@ -1,4 +1,4 @@
-# 🏦 Loan Default Prediction: Ensemble Learning with Model Blending
+# Loan Default Prediction: Ensemble Learning with Model Blending
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![CatBoost](https://img.shields.io/badge/CatBoost-Latest-orange.svg)](https://catboost.ai/)
