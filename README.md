@@ -8,6 +8,8 @@
 
 An advanced **ensemble learning pipeline** for loan default prediction using **CatBoost**, **LightGBM**, and **Lasso blending**. This project demonstrates state-of-the-art techniques in model stacking, hyperparameter optimization with Optuna, and intelligent feature engineering for financial risk assessment.
 
+See and run this notebook on [Kaggle](https://www.kaggle.com/code/harshg97/catboost-lgbm-blending-with-optuna-lasso/notebook).
+
 ## 📊 Project Overview
 
 This notebook tackles a binary classification problem predicting **loan default risk** using a sophisticated multi-model ensemble approach. Instead of relying on a single model, we combine the strengths of two powerful gradient boosting algorithms and use a meta-learner to optimally blend their predictions.
