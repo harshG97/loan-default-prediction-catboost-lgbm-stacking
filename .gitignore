@@ -24,19 +24,6 @@ wheels/
 .ipynb_checkpoints
 *.ipynb_checkpoints/
 
-# Data files (too large for git)
-data/
-*.csv
-*.xlsx
-*.parquet
-
-# Model files
-*.pkl
-*.joblib
-*.h5
-*.pb
-catboost_info/
-
 # Optuna
 optuna_study.db
 
